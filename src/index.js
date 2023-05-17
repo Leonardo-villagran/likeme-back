@@ -67,7 +67,7 @@ app.put('/posts/like/:id', async (req, res) => {
 // Ruta para insertar un nuevo post
 app.post('/posts', async (req, res) => {
     const { titulo, img, descripcion } = req.body;
-    console.log(titulo, img, descripcion);
+    //console.log(titulo, img, descripcion);
     const likes = 0;
     try {
         const client = await pool.connect();
@@ -76,7 +76,7 @@ app.post('/posts', async (req, res) => {
             [titulo, img, descripcion, likes]
         );
         const postId = result.rows[0].id;
-        console.log(result.rows[0]);
+        //console.log(result.rows[0]);
         res.json({ id: postId, titulo, img, descripcion, likes });
         client.release();
     } catch (err) {
