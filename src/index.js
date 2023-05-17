@@ -66,17 +66,17 @@ app.put('/posts/like/:id', async (req, res) => {
 
 // Ruta para insertar un nuevo post
 app.post('/posts', async (req, res) => {
-    const { titulo, img, descripcion } = req.body;
+    const { titulo, imgSrc, descripcion } = req.body;
     const likes = 0;
     try {
         const client = await pool.connect();
         const result = await client.query(
             'INSERT INTO posts (titulo, img, descripcion, likes) VALUES ($1, $2, $3, $4) RETURNING id',
-            [titulo, img, descripcion, likes]
+            [titulo, imgSrc, descripcion, likes]
         );
         const postId = result.rows[0].id;
         console.log(result.rows[0]);
-        res.json({ id: postId, titulo, img, descripcion, likes });
+        res.json({ id: postId, titulo, imgSrc, descripcion, likes });
         client.release();
     } catch (err) {
         console.error(err);
