@@ -101,5 +101,5 @@ app.delete('/posts/:id', async (req, res) => {
 
 // Inicia el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor de Express escuchando en el puerto ${PORT}`);
+    console.log(`Servidor de Express en ${process.env.DB_HOST} escuchando en el puerto ${PORT}`);
 });
