@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 require('dotenv').config();
 const cors = require('cors');
 
@@ -15,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 
 // Configura body-parser para parsear las solicitudes JSON
-app.use(bodyParser.json());
+app.use(express.json())
 
 // Ruta para obtener todos los posts
 app.get('/posts',getPosts);
