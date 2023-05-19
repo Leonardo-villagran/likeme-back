@@ -1,6 +1,7 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
+
 // Configura la conexión a la base de datos PostgreSQL a través de variables de entorno
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -11,6 +12,7 @@ const pool = new Pool({
     allowExitOnIdle: true
 });
 
+// Callback de tipo GET que permite obtener todos los posts desde la base de datos.
 
 const getPosts =async (req, res) => {
     try {
@@ -24,6 +26,9 @@ const getPosts =async (req, res) => {
         res.status(500).json({ message: `Error al obtener los posts ${process.env.DB_USER} ${process.env.DB_HOST} ${process.env.DB_NAME} ${process.env.DB_PORT}` });
     }
 }
+
+// Callback de tipo POST que permite insertar un nuevo post a la base de datos
+
 const postPost =async (req, res) => {
     const { titulo, url, descripcion } = req.body;
     const img=url;
@@ -44,6 +49,8 @@ const postPost =async (req, res) => {
         res.status(500).json({ message: 'Error al insertar el post' });
     }
 }
+
+// Callback de tipo PUT que permite actualizar el estado de los likes dentro de la base de datos. 
 
 const putPost =async (req, res) => {
     const id = req.params.id;
@@ -70,6 +77,9 @@ const putPost =async (req, res) => {
     }
 }
 
+
+// Callback de tipo DELETE que permite borrar post de la base de datos.
+
 const deletePosts =async (req, res) => {
     const { id } = req.params;
 
@@ -83,5 +93,7 @@ const deletePosts =async (req, res) => {
         res.sendStatus(500);
     }
 }
+
+// Exportación de los callbacks
 
 module.exports ={getPosts, postPost, putPost, deletePosts};
