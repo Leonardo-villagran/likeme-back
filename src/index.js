@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.get('/posts',getPosts);
 
 // Ruta para insertar un nuevo post
-app.post('/posts', postPost, putPost);
+app.post('/posts', postPost);
 
 //Ruta para aumentar (actualizar) los likes
 app.put('/posts/like/:id', putPost);
