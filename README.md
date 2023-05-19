@@ -32,7 +32,6 @@ npm run dev
 npm install --legacy-peer-deps
 ```
 * Luego de realizar la instalación de las dependencias, fue necesario realizar un cambio en el package donde se reemplazó lo siguiente:
-```
+
 Cambiar **"start": "react-scripts start"** por **"start": "react-scripts --openssl-legacy-provider start"**
 Cambiar **"build": "react-scripts build"** por **"build": "react-scripts --openssl-legacy-provider build"**
-```
