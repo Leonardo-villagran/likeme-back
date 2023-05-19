@@ -1,37 +1,44 @@
 # mi_repertorio
 
->"Tarea 3: Backend de likeme para el módulo: Backend con Node y Express (G27)"
+>Tarea 3: Backend de likeme para el módulo: Backend con Node y Express (G27)
 
 ## Características:
 
-* El sistema corresponde a un programa que se ejecuta sobre Node js con Express en el puerto 3000, pero se pueden utilizar variables de entorno para definir el puerto.
+- El sistema corresponde a un programa que se ejecuta sobre Node.js con Express en el puerto 3000, pero se pueden utilizar variables de entorno para definir el puerto.
 
-* El programa contiene un archivo index.js en la carpeta src, el cual llama a distintas funciones para mostrar, agregar, actualizar y borrar posts de la base de datos a través de procesos de backend en node.
+- El programa contiene un archivo `index.js` en la carpeta `src`, el cual llama a distintas funciones para mostrar, agregar, actualizar y borrar posts de la base de datos a través de procesos de backend en Node.
 
-* Se utiliza base de datos llamada likeme, que posee una tabla llamada posts que almacena los datos de los post agregados.
+- Se utiliza una base de datos llamada `likeme`, que posee una tabla llamada `posts` que almacena los datos de los posts agregados.
 
-* Se utiliza una carpeta llamada controllers para almacenar las funciones que contienen los callbacks.
+- Existe una carpeta llamada `controllers` que almacena las funciones que contienen los `callbacks`.
 
-* Luego de descargar, instalar las dependencias y módulos necesarios a través de los comandos:
-```
-npm install
-```
-* Se ejecuta el programa a través de los comandos:
-```
-npm run start
-```
-* Para ejecutar el programa en modo de producción (sin debugging) se ejecutan los comandos:
-```
-npm run dev
-```
+## Instrucciones de instalación y ejecución:
 
-## Notas con respecto a la instalación del front proporcionado por Desafío Latam:
+1. Descarga el repositorio.
+2. Abre una terminal en el directorio raíz del proyecto.
+3. Ejecuta el siguiente comando para instalar las dependencias y módulos necesarios:
+   ```
+   npm install
+   ```
+4. Para ejecutar el programa en modo de desarrollo, utiliza el siguiente comando:
+   ```
+   npm run start
+   ```
+5. Si deseas ejecutar el programa en modo de producción (sin debugging), utiliza el siguiente comando:
+   ```
+   npm run dev
+   ```
 
-* No se pudo instalar las dependencias de forma directa por lo que se tuvo que utilizar los comandos:
-```
-npm install --legacy-peer-deps
-```
-* Luego de realizar la instalación de las dependencias, fue necesario realizar un cambio en el package donde se reemplazó lo siguiente:
+## Notas sobre la instalación del front proporcionado por Desafío Latam:
 
-Cambiar <span style="background-color: #d3d3d3;">"start": "react-scripts start"</span> por `"start": "react-scripts --openssl-legacy-provider start"` <br>
-Cambiar `"build": "react-scripts build"` por `"build": "react-scripts --openssl-legacy-provider build"`
+- Si has tenido problemas al instalar las dependencias de forma directa, prueba utilizando el siguiente comando:
+   ```
+   npm install --legacy-peer-deps
+   ```
+- Después de realizar la instalación de las dependencias, es necesario realizar un cambio en el archivo `package.json`. Reemplaza las siguientes líneas:
+
+   Cambia `"start": "react-scripts start"` por `"start": "react-scripts --openssl-legacy-provider start"`
+
+   Cambia `"build": "react-scripts build"` por `"build": "react-scripts --openssl-legacy-provider build"`
+
+Con estos pasos, podrás instalar y ejecutar el proyecto de manera correcta.
