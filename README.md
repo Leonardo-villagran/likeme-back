@@ -1,4 +1,4 @@
-# mi_repertorio
+# Likeme
 
 >Tarea 3: Backend de likeme para el módulo: Backend con Node y Express (G27)
 
@@ -6,6 +6,14 @@
 
 - El sistema corresponde a un programa que se ejecuta sobre Node.js con Express en el puerto 3000, pero se pueden utilizar variables de entorno para definir el puerto.
 
+- Se genera un archivo llamado .env en el cual se definen variables de entorno para conectar con la base de datos.
+  ```
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER=postgres
+   DB_PASSWORD=postgres
+   DB_NAME=likeme
+   ```
 - El programa contiene un archivo `index.js` en la carpeta `src`, el cual llama a distintas funciones para mostrar, agregar, actualizar y borrar posts de la base de datos a través de procesos de backend en Node.
 
 - Se utiliza una base de datos llamada `likeme`, que posee una tabla llamada `posts` que almacena los datos de los posts agregados.
