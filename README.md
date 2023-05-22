@@ -6,7 +6,7 @@
 
 - El sistema corresponde a un programa de tipo backend, que se ejecuta sobre Node js con Express en el puerto 3000, pero se pueden utilizar variables de entorno para cambiar el puerto en la variable `PORT`.
 
--El sistema permite ejecutar un servidor,  que interactúa con una base de datos de tipo Postgres y proporciona servicios o datos a los clientes que acceden a través de una web de tipo frontend.
+- El sistema permite ejecutar un servidor,  que interactúa con una base de datos de tipo Postgres y proporciona servicios o datos a los clientes que acceden a través de una web de tipo frontend.
 
 - Se genera un archivo llamado .env en el cual se definen variables de entorno para conectar con la base de datos.
   ```
@@ -38,7 +38,7 @@
    ```
    npm run start
    ```
-6. Se ejecutar el servidor directamente a través de los comandos:
+6. Se puede ejecutar también directamente a través de los comandos:
  ```
    node src/index.js
  ```
