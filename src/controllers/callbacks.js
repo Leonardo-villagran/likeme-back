@@ -14,13 +14,13 @@ const pool = new Pool({
 
 // Callback de tipo GET que permite obtener todos los posts desde la base de datos.
 
-const getPosts =async (req, res) => {
+const getPosts = async (req, res) => {
     try {
-        const client = await pool.connect();
-        const result = await client.query('SELECT * FROM posts order by id');
+
+        const result = await pool.query('SELECT * FROM posts order by id');
         const posts = result.rows;
         res.json(posts);
-        client.release();
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: `Error al obtener los posts ${process.env.DB_USER} ${process.env.DB_HOST} ${process.env.DB_NAME} ${process.env.DB_PORT}` });
@@ -29,21 +29,21 @@ const getPosts =async (req, res) => {
 
 // Callback de tipo POST que permite insertar un nuevo post a la base de datos
 
-const postPost =async (req, res) => {
+const postPost = async (req, res) => {
     const { titulo, url, descripcion } = req.body;
-    const img=url;
+    const img = url;
     //console.log(titulo, img, descripcion);
     const likes = 0;
     try {
-        const client = await pool.connect();
-        const result = await client.query(
+
+        const result = await pool.query(
             'INSERT INTO posts (titulo, img, descripcion, likes) VALUES ($1, $2, $3, $4) RETURNING id',
             [titulo, img, descripcion, likes]
         );
         const postId = result.rows[0].id;
         //console.log(result.rows[0]);
         res.json({ id: postId, titulo, img, descripcion, likes });
-        client.release();
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Error al insertar el post' });
@@ -52,14 +52,14 @@ const postPost =async (req, res) => {
 
 // Callback de tipo PUT que permite actualizar el estado de los likes dentro de la base de datos. 
 
-const putPost =async (req, res) => {
+const putPost = async (req, res) => {
     const id = req.params.id;
     const client = await pool.connect();
-    let likes=0;
+    let likes = 0;
     try {
         const result2 = await client.query('SELECT likes FROM posts where id=$1', [id]);
-        const data=result2.rows[0];
-        likes=data.likes+1;
+        const data = result2.rows[0];
+        likes = data.likes + 1;
     } catch (error) {
         console.error('Error executing query', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -77,10 +77,9 @@ const putPost =async (req, res) => {
     }
 }
 
-
 // Callback de tipo DELETE que permite borrar post de la base de datos.
 
-const deletePosts =async (req, res) => {
+const deletePosts = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -96,4 +95,4 @@ const deletePosts =async (req, res) => {
 
 // Exportación de los callbacks
 
-module.exports ={getPosts, postPost, putPost, deletePosts};
+module.exports = { getPosts, postPost, putPost, deletePosts };
